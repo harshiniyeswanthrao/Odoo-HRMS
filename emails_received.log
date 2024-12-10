@@ -1,0 +1,131 @@
+---------- MESSAGE FOLLOWS ----------
+Content-Type: text/plain
+Your Account
+
+Harshini
+
+
+
+
+
+
+
+
+Dear Harshini,
+
+A password reset was requested for the Odoo account linked to this email.
+You may change your password by following this link which will remain valid during 4 hours:
+
+Change password
+[1]
+If you do not expect this, you can safely ignore this email.
+
+Thanks,
+
+-- Mitchell Admin
+
+
+
+
+
+
+
+
+YourCompany
+
+9481730164
+| harshinigy@gmail.com [2]
+| http://www.example.com [3]
+
+
+
+
+
+
+Powered by Odoo [4]
+
+
+
+[1] http://localhost:8032/web/reset_password?db=Harshini&token=AaDFTmcAAAAAHlsBt4GF5771ehP3dUsfQ8x3cLDI-_uAUyjc5Cb7UJtbOTksIDE3MzMxMzE4NjEsICJyZXNldCJd
+[2] mailto:harshinigy@gmail.com
+[3] http://www.example.com
+[4] https://www.odoo.com?utm_source=db&utm_medium=auth
+
+Content-Type: text/html
+
+        <table border="0" cellpadding="0" cellspacing="0" style="padding-top: 16px; background-color: #FFFFFF; font-family:Verdana, Arial,sans-serif; color: #454748; width: 100%; border-collapse:separate;"><tr><td align="center">
+        <table border="0" cellpadding="0" cellspacing="0" width="590" style="padding: 16px; background-color: #FFFFFF; color: #454748; border-collapse:separate;">
+        <tbody>
+            
+            <tr>
+                <td align="center" style="min-width: 590px;">
+                    <table border="0" cellpadding="0" cellspacing="0" width="590" style="min-width: 590px; background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;">
+                        <tr><td valign="middle">
+                            <span style="font-size: 10px;">Your Account</span><br/>
+                            <span style="font-size: 20px; font-weight: bold;">
+                                Harshini
+                            </span>
+                        </td></tr>
+                        <tr><td colspan="2" style="text-align:center;">
+                          <hr width="100%" style="background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;"/>
+                        </td></tr>
+                    </table>
+                </td>
+            </tr>
+            
+            <tr>
+                <td align="center" style="min-width: 590px;">
+                    <table border="0" cellpadding="0" cellspacing="0" width="590" style="min-width: 590px; background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;">
+                        <tr><td valign="top" style="font-size: 13px;">
+                            <div>
+                                Dear Harshini,<br/><br/>
+                                A password reset was requested for the Odoo account linked to this email.
+                                You may change your password by following this link which will remain valid during 4 hours:<br/>
+                                <div style="margin: 16px 0px 16px 0px;">
+                                    <a style="background-color: #875A7B; padding: 8px 16px 8px 16px; text-decoration: none; color: #fff; border-radius: 5px; font-size:13px;" href="http://localhost:8032/web/reset_password?db=Harshini&amp;token=AaDFTmcAAAAAHlsBt4GF5771ehP3dUsfQ8x3cLDI-_uAUyjc5Cb7UJtbOTksIDE3MzMxMzE4NjEsICJyZXNldCJd">
+                                        Change password
+                                    </a>
+                                </div>
+                                If you do not expect this, you can safely ignore this email.<br/><br/>
+                                Thanks,
+                                    <br/>
+                                    <span data-o-mail-quote="1">-- <br data-o-mail-quote="1">Mitchell Admin</span>
+                            </div>
+                        </td></tr>
+                        <tr><td style="text-align:center;">
+                          <hr width="100%" style="background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;"/>
+                        </td></tr>
+                    </table>
+                </td>
+            </tr>
+            
+            <tr>
+                <td align="center" style="min-width: 590px;">
+                    <table border="0" cellpadding="0" cellspacing="0" width="590" style="min-width: 590px; background-color: white; font-size: 11px; padding: 0px 8px 0px 8px; border-collapse:separate;">
+                        <tr><td valign="middle" align="left">
+                            YourCompany
+                        </td></tr>
+                        <tr><td valign="middle" align="left" style="opacity: 0.7;">
+                            9481730164
+
+                                | <a style="text-decoration:none; color: #454748;" href="mailto:harshinigy@gmail.com">harshinigy@gmail.com</a>
+                                | <a style="text-decoration:none; color: #454748;" href="http://www.example.com">http://www.example.com</a>
+                        </td></tr>
+                    </table>
+                </td>
+            </tr>
+        </tbody>
+        </table>
+        </td></tr>
+        
+        <tr><td align="center" style="min-width: 590px;">
+            <table border="0" cellpadding="0" cellspacing="0" width="590" style="min-width: 590px; background-color: #F1F1F1; color: #454748; padding: 8px; border-collapse:separate;">
+              <tr><td style="text-align: center; font-size: 13px;">
+                Powered by <a target="_blank" href="https://www.odoo.com?utm_source=db&amp;utm_medium=auth" style="color: #875A7B;">Odoo</a>
+              </td></tr>
+            </table>
+        </td></tr>
+        </table>
+
+------------ END MESSAGE ------------
+
