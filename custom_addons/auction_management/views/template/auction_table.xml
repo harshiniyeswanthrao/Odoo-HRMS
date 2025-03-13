@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="auction_webpage" name="Auction Webpage">
+         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"/>
+        <link rel="stylesheet" type="text/css" href="/auction_management/static/src/css/auction_table2.css"/>
+            <div class="auction-container">
+                <div class="live-events-header">
+                    <h2>LIVE EVENTS</h2>
+                </div>
+
+                <!-- Filters Section -->
+                <div class="filter-container">
+                    <form method="get" action="/auction/table" id="auction-filter-form">
+                        <div class="filter-grid">
+                            <!-- Price Range Filter -->
+                            <div class="filter-group">
+                                <label for="price-min">Reserve Price:</label>
+                                <div class="price-inputs">
+                                    <input type="number" name="price_min" id="price-min" placeholder="From"/>
+                                    <input type="number" name="price_max" id="price-max" placeholder="To"/>
+                                </div>
+                            </div>
+
+                            <!-- State Filter -->
+                            <div class="filter-group">
+                                <label for="state">State</label>
+                                <select name="state" id="state">
+                                    <option value="">All States</option>
+                                    <t t-foreach="states" t-as="state">
+                                        <option t-att-value="state" t-esc="state"/>
+                                    </t>
+                                </select>
+                            </div>
+
+                            <!-- City Filter -->
+                            <div class="filter-group">
+                                <label for="city">City</label>
+                                <select name="city" id="city">
+                                    <option value="">All Cities</option>
+                                    <t t-foreach="cities" t-as="city">
+                                        <option t-att-value="city" t-esc="city"/>
+                                    </t>
+                                </select>
+                            </div>
+
+                            <!-- Property Type Filter -->
+                            <div class="filter-group">
+                                <label for="type">Type of Property</label>
+                                <select name="type" id="type">
+                                    <option value="">All Types</option>
+                                    <t t-foreach="types" t-as="type">
+                                        <option t-att-value="type" t-esc="type"/>
+                                    </t>
+                                </select>
+                            </div>
+
+                            <!-- Search Field -->
+                            <div class="filter-group">
+                                <label for="search">Search</label>
+                                <input type="text" name="search" id="search" placeholder="Search Auctions..."/>
+                            </div>
+
+                            <!-- Submit Button -->
+                            <div class="filter-group">
+                                <button type="submit" class="filter-button">Apply Filters</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Auction Table -->
+                <div class="auction-table-container">
+                    <table class="auction-table">
+                        <thead>
+                            <tr>
+                                <th>Auction ID</th>
+                                <th>Bank Name</th>
+                                <th>Asset on Auction</th>
+                                <th>City</th>
+                                <th>State</th>
+                                <th>Reserve Price</th>
+                                <th>EMD Amount</th>
+                                <th>Status</th>
+                                <th>Remaining Time</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-if="auctions">
+                                <t t-foreach="auctions" t-as="auction">
+                                    <tr>
+                                        <td t-esc="auction['auction_id']"/>
+
+                                        <td t-esc="auction['asset_on_auction']"/>
+                                        <td t-esc="auction['city']"/>
+                                        <td t-esc="auction['state']"/>
+                                        <td t-esc="auction['reserve_price']"/>
+                                        <td t-esc="auction['emd_amount']"/>
+                                        <td t-esc="auction['status']"/>
+                                        <td t-esc="auction['remaining_time']"/>
+                                    </tr>
+                                </t>
+                            </t>
+                            <t t-else="">
+                                <tr>
+                                    <td colspan="9" class="no-data">No Auctions Found</td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+    </template>
+</odoo>

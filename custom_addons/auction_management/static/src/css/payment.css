@@ -1,0 +1,189 @@
+/* Reset default margins and padding for consistency */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+    color: #333;
+}
+
+/* Main container for the payment form */
+.payment-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Header styling */
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #333;
+}
+
+h2 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    text-align: center;
+    color: #4CAF50;
+}
+
+h3 {
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Payment method section */
+.payment-options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.payment-options label {
+    font-size: 16px;
+    color: #333;
+    cursor: pointer;
+}
+
+.payment-options input[type="radio"] {
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+/* EMD form container */
+.emd-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.emd-form label {
+    font-size: 16px;
+    color: #333;
+}
+
+.emd-form input[type="file"] {
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s;
+}
+
+.emd-form input[type="file"]:hover {
+    border-color: #4CAF50;
+}
+
+/* Submit button styling */
+.payment-submit {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.payment-submit .btn-submit {
+    padding: 12px 30px;
+    font-size: 18px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.payment-submit .btn-submit:hover {
+    background-color: #45a049;
+}
+
+.payment-submit .btn-submit:active {
+    background-color: #388e3c;
+}
+
+/* Success page styling */
+.payment-success-container {
+    width: 100%;
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 20px;
+    text-align: center;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.payment-success-container h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #4CAF50;
+}
+
+.payment-success-container a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+.payment-success-container a:hover {
+    background-color: #45a049;
+}
+
+.payment-success-container a:active {
+    background-color: #388e3c;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .payment-container {
+        padding: 15px;
+    }
+
+    .emd-form input[type="file"] {
+        font-size: 12px;
+    }
+
+    .payment-submit .btn-submit {
+        font-size: 16px;
+        padding: 10px 25px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 20px;
+    }
+
+    h2, h3 {
+        font-size: 16px;
+    }
+
+    .payment-options label {
+        font-size: 14px;
+    }
+
+    .emd-form input[type="file"] {
+        font-size: 12px;
+    }
+
+    .payment-submit .btn-submit {
+        font-size: 14px;
+        padding: 8px 20px;
+    }
+}

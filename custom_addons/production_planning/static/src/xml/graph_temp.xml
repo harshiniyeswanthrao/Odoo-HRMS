@@ -1,0 +1,8 @@
+<templates xml:space="preserve">
+    <t t-name="production_planning.graph_temp">
+        <t t-call="web.assets_backend"/>
+        <div class="graph-container">
+            <canvas id="myChart"></canvas>
+        </div>
+    </t>
+</templates>

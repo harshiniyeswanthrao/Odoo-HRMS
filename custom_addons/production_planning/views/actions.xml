@@ -1,0 +1,41 @@
+<odoo>
+    <!-- Machine Master Action -->
+    <record id="action_machine_master" model="ir.actions.act_window">
+        <field name="name">Machine Master</field>
+        <field name="res_model">machine.master</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Part Master Action -->
+    <record id="action_part_master" model="ir.actions.act_window">
+        <field name="name">Part Master</field>
+        <field name="res_model">part.master</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Production Planning Action -->
+    <record id="action_production_planning" model="ir.actions.act_window">
+        <field name="name">Production Planning</field>
+        <field name="res_model">production.planning</field>
+        <field name="view_mode">list,form</field>
+        <field name="target">new</field>
+        <field name="context">{'default_name': active_id,'default_planning_name_id': active_id, 'default_machine_id': machine_id}</field>
+    </record>
+
+    <!-- Filtered Production Planning Action -->
+    <record id="action_filtered_production_planning" model="ir.actions.act_window">
+        <field name="name">Production Planning for Cell</field>
+        <field name="res_model">production.planning</field>
+        <field name="view_mode">list,form</field>
+        <field name="context">{'default_production_cell_id': active_id}</field>
+        <field name="domain">[('production_cell_id', '=', active_id)]</field>
+    </record>
+
+    <record id="action_production_planning_name" model="ir.actions.act_window">
+        <field name="name">Plan Names</field>
+        <field name="res_model">production.planning.name</field>
+        <field name="view_mode">list,form</field>
+        <field name="view_id" ref="view_plan_name_list"/> <!-- Default view -->
+    </record>
+
+</odoo>

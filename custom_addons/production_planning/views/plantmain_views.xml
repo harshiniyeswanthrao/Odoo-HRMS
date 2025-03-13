@@ -1,0 +1,73 @@
+<odoo>
+    <!-- List View for Plant Management -->
+    <record id="view_plant_management_list" model="ir.ui.view">
+        <field name="name">plant.management.list</field>
+        <field name="model">plant.management</field>
+        <field name="arch" type="xml">
+            <list string="Plant Management">
+                <field name="name"/>
+                <field name="location"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Kanban View for Plant Management -->
+    <record id="view_plant_management_kanban" model="ir.ui.view">
+        <field name="name">plant.management.kanban</field>
+        <field name="model">plant.management</field>
+        <field name="arch" type="xml">
+            <kanban string="Plant Management" class="plant_kanban_view">
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="o_kanban_card plant_kanban_card" style="cursor: pointer;">
+                            <div class="o_kanban_record_title">
+                                <strong><field name="name"/></strong>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <!-- Form View for Plant Management -->
+    <record id="view_plant_management_form" model="ir.ui.view">
+        <field name="name">plant.management.form</field>
+        <field name="model">plant.management</field>
+        <field name="arch" type="xml">
+            <form string="Plant Management">
+                <sheet>
+                    <group>
+                        <field name="name" />
+                        <field name="location" />
+                    </group>
+                    <notebook>
+                        <page string="Plant Lines">
+                            <field name="plant_lines">
+                                <kanban string="Plant Lines" class="plant_kanban_view" editable="bottom">
+                                    <templates>
+                                        <t t-name="kanban-box">
+                                            <div class="o_kanban_card plant_kanban_card">
+                                                <div class="o_kanban_record_title">
+                                                    <strong><field name="name"/></strong>
+                                                </div>
+                                            </div>
+                                        </t>
+                                    </templates>
+                                </kanban>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action for Plant Management -->
+    <record id="action_plant_management" model="ir.actions.act_window">
+        <field name="name">Plants</field>
+        <field name="res_model">plant.management</field>
+        <field name="view_mode">kanban,form</field>  <!-- Kanban first -->
+    </record>
+
+</odoo>

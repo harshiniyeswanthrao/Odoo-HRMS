@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="register_template" name="Register">
+        <t t-call-assets="web.assets_frontend" />
+        <!-- Link Custom CSS -->
+        <link rel="stylesheet" type="text/css" href="/auction_management/static/src/css/auth.css" />
+
+        <t t-set="title">Register - Auction Management System</t>
+        <div class="mt-5">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="card shadow-lg border-0 rounded-3">
+                        <div class="card-body p-5">
+                            <h2 class="text-center mb-4 fw-bold">Create an Account</h2>
+                            <form action="/auction/register/submit" method="post" id="registerForm">
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="name" class="form-label">Full Name</label>
+                                        <input type="text" class="form-control" name="name" id="name" placeholder="Enter your full name" required="1" />
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="email" class="form-label">Email</label>
+                                        <input type="email" class="form-control" name="email" id="email" placeholder="Enter your email" required="1" />
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="password" class="form-label">Password</label>
+                                        <input type="password" class="form-control" name="password" id="password" placeholder="Create a password" required="1" />
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="confirm_password" class="form-label">Confirm Password</label>
+                                        <input type="password" class="form-control" name="confirm_password" id="confirm_password" placeholder="Confirm your password" required="1" />
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="phone" class="form-label">Phone</label>
+                                    <input type="tel" class="form-control" name="phone" id="phone" placeholder="Enter your phone number" />
+                                </div>
+
+                                <!-- Terms and Conditions -->
+                                <div class="mb-3 form-check">
+                                    <input type="checkbox" class="form-check-input" id="termsCheckbox" required="1" />
+                                    <label class="form-check-label" for="termsCheckbox">
+                                        I agree to the <a href="#" id="termsLink" class="text-primary" data-bs-toggle="modal" data-bs-target="#termsModal">Terms and Conditions</a>
+                                    </label>
+                                </div>
+
+                                <div class="col-md-12 d-flex register_btn">
+                                    <button type="submit" class="btn" id="registerButton">Register</button>
+                                </div>
+                            </form>
+                            <p class="mt-4 text-center">
+                                <a href="/auction/login" class="text-decoration-none">Already have an account? Login here.</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Terms and Conditions Modal -->
+        <div class="modal fade" id="termsModal" tabindex="-1" aria-labelledby="termsModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-scrollable">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="termsModalLabel">Terms and Conditions</h5>
+<!--                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>-->
+                    </div>
+                    <div class="modal-body">
+                        <p>Here are the terms and conditions of our auction system:</p>
+                        <ul>
+                            <li>Users must provide valid information while registering.</li>
+                            <li>All bids are binding and cannot be revoked once placed.</li>
+                            <li>The auctioneer reserves the right to cancel any auction.</li>
+                            <li>Payments must be made within the specified time frame.</li>
+                            <li>Failure to comply with these terms may result in account suspension.</li>
+                        </ul>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+</odoo>

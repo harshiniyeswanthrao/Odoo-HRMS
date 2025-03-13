@@ -1,0 +1,10 @@
+<odoo>
+    <!-- Action for Shift Planner -->
+    <record id="action_shift_planner" model="ir.actions.act_window">
+        <field name="name">Shift Planner</field>
+        <field name="res_model">shift.planner</field>
+        <field name="view_mode">list,form</field>
+<!--        <field name="view_id" ref="view_shift_list"/> &lt;!&ndash; Referring to List View &ndash;&gt;-->
+<!--        <field name="search_view_id" ref="shift_planner_search"/> &lt;!&ndash; Referring to Search View &ndash;&gt;-->
+    </record>
+</odoo>

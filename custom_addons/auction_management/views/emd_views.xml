@@ -1,0 +1,42 @@
+<odoo>
+   <record id="view_auction_emd_form" model="ir.ui.view">
+        <field name="name">auction.emd.form</field>
+        <field name="model">auction.emd</field>
+        <field name="arch" type="xml">
+            <form string="Earnest Money Deposit">
+                <sheet>
+                    <group>
+                        <field name="user_id"/>
+                        <field name="auction_id"/>
+                        <field name="payment_status"/>
+                        <field name="emd_bank_name" readonly="1"/>
+                        <field name="emd_account_number" readonly="1"/>
+                        <field name="emd_ifsc_code" readonly="1"/>
+                    </group>
+                    <group>
+                        <field name="emd_amount" readonly="1"/>
+                    </group>
+                    <group>
+                        <field name="aadhaar_card" widget="binary" filename="aadhaar_card"/>
+                        <field name="pan_card" widget="binary" filename="pan_card"/>
+                        <field name="blank_cheque" widget="binary" filename="blank_cheque"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action for EMD -->
+    <record id="action_auction_emd" model="ir.actions.act_window">
+        <field name="name">EMD</field>
+        <field name="res_model">auction.emd</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Create your first EMD record
+            </p>
+        </field>
+    </record>
+
+
+</odoo>

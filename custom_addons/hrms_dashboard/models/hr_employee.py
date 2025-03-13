@@ -1,25 +1,4 @@
-# -*- coding: utf-8 -*-
-#############################################################################
-#    A part of Open HRMS Project <https://www.openhrms.com>
-#
-#    Cybrosys Technologies Pvt. Ltd.
-#
-#    Copyright (C) 2024-TODAY Cybrosys Technologies(<https://www.cybrosys.com>)
-#    Author: Cybrosys Techno Solutions(<https://www.cybrosys.com>)
-#
-#    You can modify it under the terms of the GNU LESSER
-#    GENERAL PUBLIC LICENSE (LGPL v3), Version 3.
-#
-#    This program is distributed in the hope that it will be useful,
-#    but WITHOUT ANY WARRANTY; without even the implied warranty of
-#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the1`
-#    GNU LESSER GENERAL PUBLIC LICENSE (LGPL v3) for more details.
-#
-#    You should have received a copy of the GNU LESSER GENERAL PUBLIC LICENSE
-#    (LGPL v3) along with this program.
-#    If not, see <http://www.gnu.org/licenses/>.
-#
-#############################################################################
+
 import pandas as pd
 from collections import defaultdict
 from datetime import timedelta, datetime, date
@@ -212,27 +191,43 @@ class HrEmployee(models.Model):
         employee = self.env['hr.employee'].search([('user_id', '=', uid)], limit=1)
         today = fields.Date.today()
 
-        # Fetch birthday employees
+        # Fetch employees with birthdays
         birthday_employees = self.env['hr.employee'].search_read(
-            [('birthday', '!=', False),
-             ('birthday', '>=', today)],
-            fields=['id', 'name', 'birthday'],
-            order='birthday ASC',
-            limit=5
+            [('birthday', '!=', False)],  # Ensure birthday is not null
+            fields=['id', 'name', 'birthday']
         )
 
-        # Adding birthday status and calculating days left
+        upcoming_birthdays = []  # Initialize list to store processed data
+
+        # Process each employee's birthday
         for emp in birthday_employees:
-            emp_birthday = fields.Date.from_string(emp['birthday'])
-            if emp_birthday.month == today.month and emp_birthday.day == today.day:
-                emp['is_birthday'] = True
-                emp['days'] = 0
-            else:
-                emp_birthday = emp_birthday.replace(year=today.year)
-                if emp_birthday < today:
-                    emp_birthday = emp_birthday.replace(year=today.year + 1)
-                emp['days'] = (emp_birthday - today).days
-                emp['is_birthday'] = False
+            birthday = emp['birthday']  # Employee's birthday
+
+            # Convert the birthday to this year's date
+            emp_birthday_this_year = birthday.replace(year=today.year)
+
+            # If the birthday has already passed this year, move it to next year
+            if emp_birthday_this_year < today:
+                emp_birthday_this_year = emp_birthday_this_year.replace(year=today.year + 1)
+
+            # Calculate the days left for the birthday
+            days_left = (emp_birthday_this_year - today).days
+
+            # Add only employees whose birthdays are within the next 5 days
+            if 0 <= days_left <= 5:
+                emp['is_birthday'] = (days_left == 0)  # Mark if today is their birthday
+                emp['days'] = days_left
+                emp['next_birthday'] = emp_birthday_this_year
+                upcoming_birthdays.append(emp)
+
+        # Sort the employees by the next birthday (if not already sorted)
+        birthday_employees.sort(key=lambda emp: (emp['birthday'].month, emp['birthday'].day))
+
+
+        # Limit to 5 results
+        upcoming_birthdays = upcoming_birthdays[:5]
+
+
 
         # Fetch work anniversaries
         work_anniversaries = []
@@ -261,8 +256,11 @@ class HrEmployee(models.Model):
                     'days': days_until_anniversary,
                 })
 
-        # Optional: Limit the results to the top 5 upcoming anniversaries
-        work_anniversaries = work_anniversaries[:5]
+                # Sort the work anniversaries list by the anniversary date (ascending order)
+                work_anniversaries = sorted(work_anniversaries, key=lambda x: x['anniversary_date'])
+
+                # Optional: Limit the results to the top 5 upcoming anniversaries
+                work_anniversaries = work_anniversaries[:7]
 
         # Fetch announcements
         announcements = self.env['hr.announcement'].search_read(
@@ -299,86 +297,6 @@ class HrEmployee(models.Model):
             'employee_work_anniversary': work_anniversaries,
         }
 
-    # @api.model
-    # def get_upcoming(self):
-    #     """Fetches upcoming birthdays, events, announcements, and work anniversaries."""
-    #     uid = request.session.uid
-    #     employee = self.env['hr.employee'].search([('user_id', '=', uid)], limit=1)
-    #     today = fields.Date.today()
-    #
-    #     # Fetch birthdays
-    #     birthday_employees = self.env['hr.employee'].search_read(
-    #             [('birthday', '!=', False),
-    #              ('birthday', '>=', today)],
-    #             fields=['id', 'name', 'birthday'],
-    #             order='birthday ASC',
-    #             limit=5
-    #         )
-    #     for emp in birthday_employees:
-    #         emp_birthday = fields.Date.from_string(emp['birthday'])
-    #         emp_birthday = emp_birthday.replace(year=today.year)
-    #         if emp_birthday < today:
-    #             emp_birthday = emp_birthday.replace(year=today.year + 1)
-    #         emp['days'] = (emp_birthday - today).days
-    #         emp['is_birthday'] = emp['days'] == 0
-    #
-    #     # Fetch work anniversaries
-    #     work_anniversaries = []
-    #     employees = self.env['hr.employee'].search(
-    #         [('joining_date', '!=', False)],
-    #         order='joining_date ASC',
-    #         limit=5  # Limit to 5 employees
-    #     )
-    #     for emp in employees:
-    #         joining_date = fields.Date.from_string(emp.joining_date)
-    #         next_anniversary = joining_date.replace(year=today.year)
-    #         if next_anniversary < today:
-    #             next_anniversary = next_anniversary.replace(year=today.year + 1)
-    #         days_until_anniversary = (next_anniversary - today).days
-    #         if days_until_anniversary >= 0:
-    #             work_anniversaries.append({
-    #                 'id': emp.id,
-    #                 'name': emp.name,
-    #                 'anniversary_date': str(next_anniversary),
-    #                 'is_anniversary': days_until_anniversary == 0,
-    #                 'days': days_until_anniversary,
-    #             })
-    #
-    #     # Fetch announcements
-    #     announcements = self.env['hr.announcement'].search_read(
-    #         [('state', '=', 'approved'),
-    #          ('date_start', '<=', today),
-    #          '|', ('is_announcement', '=', True),
-    #          '|', '|',
-    #          ('employee_ids', 'in', employee.id),
-    #          ('department_ids', 'in', employee.department_id.id),
-    #          ('position_ids', 'in', employee.job_id.id)],
-    #         fields=['announcement_reason', 'date_start', 'date_end']
-    #     )
-    #
-    #     # Fetch events
-    #     cr = self._cr
-    #     lang = self.env.context.get('lang', 'en_US')
-    #     cr.execute(f"""
-    #                           SELECT e.id,
-    #                           COALESCE(e.name ->> '{lang}', e.name ->> 'en_US', e.name::text) as name,
-    #                           e.date_begin,
-    #                           e.date_end,
-    #                           rp.name as location
-    #                           FROM event_event e
-    #                           INNER JOIN res_partner rp
-    #                           ON e.address_id = rp.id
-    #                           WHERE e.date_begin >= NOW()
-    #                           ORDER BY e.date_begin
-    #                   """)
-    #     events = cr.dictfetchall()
-    #
-    #     return {
-    #         'birthday': birthday_employees,
-    #         'event': events,
-    #         'announcement': announcements,
-    #         'employee_work_anniversary': work_anniversaries,
-    #     }
 
     @api.model
     def get_dept_employee(self):

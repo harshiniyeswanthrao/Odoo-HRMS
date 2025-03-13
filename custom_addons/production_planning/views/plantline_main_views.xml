@@ -1,0 +1,21 @@
+<odoo>
+    <record id="view_plant_line_form" model="ir.ui.view">
+        <field name="name">plant.line.form</field>
+        <field name="model">plant.line</field>
+        <field name="arch" type="xml">
+            <form string="Plant Line">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="plant_id" readonly="1"/>
+                        <button name="action_open_planning_name" type="object" string="Open Production Planning" class="btn-primary"/>
+                    </group>
+
+                <chatter/>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>
+
+

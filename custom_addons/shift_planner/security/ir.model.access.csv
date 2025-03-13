@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_shift_planner,access_shift_planner,model_shift_planner,base.group_user,1,1,1,1
+access_shift_swap_request,access_shift_swap_request,model_shift_swap_request,base.group_user,1,1,1,1

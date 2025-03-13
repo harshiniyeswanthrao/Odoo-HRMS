@@ -1,0 +1,116 @@
+<!--<odoo>-->
+<!--    &lt;!&ndash; Form View for Shift Planner &ndash;&gt;-->
+<!--    <record id="view_shift_form" model="ir.ui.view">-->
+<!--        <field name="name">shift.planner.form</field>-->
+<!--        <field name="model">shift.planner</field>-->
+<!--        <field name="arch" type="xml">-->
+<!--            <form string="Shift Planner">-->
+<!--                <sheet>-->
+<!--                    <group>-->
+<!--                        <field name="name" />-->
+<!--                        <field name="shift_type" />-->
+<!--                        <field name="start_datetime" />-->
+<!--                        <field name="end_datetime" />-->
+<!--                        <field name="employee_ids" widget="many2many_tags" />-->
+<!--                        <field name="notes" />-->
+<!--                        <field name="working_hours" readonly="1" />-->
+<!--                    </group>-->
+<!--                </sheet>-->
+<!--            <chatter/>-->
+<!--            </form>-->
+
+<!--        </field>-->
+<!--    </record>-->
+
+<!--    &lt;!&ndash; List View for Shift Planner &ndash;&gt;-->
+<!--    <record id="view_shift_list" model="ir.ui.view">-->
+<!--        <field name="name">shift.planner.list</field>-->
+<!--        <field name="model">shift.planner</field>-->
+<!--        <field name="arch" type="xml">-->
+<!--            <list string="Shifts">-->
+<!--                <field name="name"/>-->
+<!--                <field name="shift_type"/>-->
+<!--                <field name="employee_ids"/>-->
+<!--            </list>-->
+<!--        </field>-->
+<!--    </record>-->
+
+<!--    &lt;!&ndash; Search View for Shift Planner &ndash;&gt;-->
+<!--    <record id="view_shift_search" model="ir.ui.view">-->
+<!--        <field name="name">shift.planner.search</field>-->
+<!--        <field name="model">shift.planner</field>-->
+<!--        <field name="arch" type="xml">-->
+<!--            <search>-->
+<!--                <field name="name"/>-->
+<!--                <field name="shift_type"/>-->
+<!--                <field name="start_datetime"/>-->
+<!--                <field name="end_datetime"/>-->
+<!--                <field name="employee_ids"/>-->
+<!--            </search>-->
+<!--        </field>-->
+<!--    </record>-->
+
+<!--    &lt;!&ndash; Action to open the Shift Planner &ndash;&gt;-->
+<!--    <record id="action_shift_planner" model="ir.actions.act_window">-->
+<!--        <field name="name">Shift Planner</field>-->
+<!--        <field name="res_model">shift.planner</field>-->
+<!--        <field name="view_mode">list,form</field>-->
+<!--        <field name="target">current</field>-->
+<!--    </record>-->
+
+
+<!--</odoo>-->
+
+
+
+
+
+
+
+<odoo>
+    <!-- Form View for Shift Planner -->
+    <record id="view_shift_form" model="ir.ui.view">
+        <field name="name">shift.planner.form</field>
+        <field name="model">shift.planner</field>
+        <field name="arch" type="xml">
+            <form string="Shift Planner">
+    <sheet>
+        <group>
+            <field name="name" />
+            <field name="shift_type" />
+            <field name="start_datetime" />
+            <field name="end_datetime" />
+            <field name="employee_ids" widget="many2many_tags" />
+            <field name="notes" />
+            <field name="working_hours" readonly="1" />
+        </group>
+    </sheet>
+    <chatter/>
+</form>
+
+        </field>
+    </record>
+
+    <!-- Search View for Shift Planner -->
+    <record id="view_shift_search" model="ir.ui.view">
+        <field name="name">shift.planner.search</field>
+        <field name="model">shift.planner</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="shift_type"/>
+                <field name="start_datetime"/>
+                <field name="end_datetime"/>
+                <field name="employee_ids"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- Action to open the Shift Planner -->
+    <record id="action_shift_planner" model="ir.actions.act_window">
+        <field name="name">Shift Planner</field>
+        <field name="res_model">shift.planner</field>
+        <field name="view_mode">form</field>
+        <field name="target">current</field>
+    </record>
+</odoo>

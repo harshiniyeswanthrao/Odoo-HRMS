@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- List View for hr.employee -->
+    <record id="view_employee_list_shift" model="ir.ui.view">
+        <field name="name">employee.list.shift</field>
+        <field name="model">hr.employee</field>
+        <field name="arch" type="xml">
+            <list string="Employee List with Shifts">
+                <field name="name"/>
+                <!-- Simply include the field without widget -->
+                <field name="shift_ids"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Form View for hr.employee -->
+    <record id="view_employee_form_shift" model="ir.ui.view">
+        <field name="name">employee.form.shift</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//sheet" position="inside">
+                <group string="Shift Assignments">
+                    <!-- Many2many field with tags in the form view -->
+                    <field name="shift_ids" widget="many2many_tags"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>

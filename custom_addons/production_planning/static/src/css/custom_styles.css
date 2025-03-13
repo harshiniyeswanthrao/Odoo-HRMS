@@ -1,0 +1,126 @@
+/* Styling ONLY for Plant Management Kanban */
+.plant_kanban_view .o_kanban_card {
+    background-color: #71639e;         /* Background color for Plant Kanban */
+    border-radius: 8px;                /* Rounded corners */
+    padding: 20px;
+    margin: 10px;
+    width: 200px;                      /* Fixed width */
+    height: 200px;                     /* Fixed height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    transition: transform 0.3s ease;
+}
+
+/* Hover effect ONLY for Plant Management */
+.plant_kanban_view .o_kanban_card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Title Styling for Plant Kanban Cards */
+.plant_kanban_view .o_kanban_record_title {
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+/* Remove border radius for Plant Titles */
+.plant_kanban_view .o_kanban_record_title {
+    border-radius: 0;
+}
+
+/* Apply styling only within Plant Management Kanban */
+.plant_kanban_view .o_kanban_renderer .o_legacy_kanban_record > div:not(.o_dropdown_kanban) {
+    border: 1px solid #dee2e6;
+    background-color: #bbbfc3;
+    padding: 10px;
+    margin: auto;
+    width: 150px;
+    height: 110px;
+}
+
+/* Customizing Kanban Renderer for Plant Management */
+.plant_kanban_view .o_kanban_renderer {
+    --Kanban-gap: 18px;
+}
+
+.o_list_renderer .o_list_table tbody > tr > td:not(.o_list_record_selector):not(.o_handle_cell):not(.o_list_button):not(.o_list_record_remove):not(.o_list_record_open_form_view) {
+    --fieldWidget-display: block;
+    display: table-cell;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-align: left;
+}
+
+.o_list_renderer .o_list_table thead .o_list_number_th {
+    text-align: left;
+}
+.o_list_renderer .o_list_table tbody > tr > td:not(.o_list_record_selector):not(.o_handle_cell):not(.o_list_button):not(.o_list_record_remove):not(.o_list_record_open_form_view).o_list_text {
+    white-space: normal;
+}
+th {
+    font-weight: 500;
+    text-align: left;
+}
+.graph-container {
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    padding: 10px;
+    align-items: center;
+}
+/* For mobile devices */
+@media (max-width: 480px) {
+    .graph-container {
+        height: 300px; /* Adjust height for small screens */
+        margin: 10px 0; /* Reduce margin */
+    }
+
+    .graph-container h2 {
+        font-size: 18px; /* Slightly smaller title for small screens */
+    }
+}
+
+/* For tablets */
+@media (min-width: 481px) and (max-width: 768px) {
+    .graph-container {
+        height: 350px; /* Adjust height for tablet screens */
+        margin: 15px 0; /* Slightly reduce margin */
+    }
+
+    .graph-container h2 {
+        font-size: 19px; /* Adjust title size */
+    }
+}
+
+/* For larger screens (laptops and desktops) */
+@media (min-width: 769px) {
+    .graph-container {
+        height: 400px; /* Default height for larger screens */
+        margin: 20px 0; /* Keep margin the same */
+    }
+
+    .graph-container h2 {
+        font-size: 20px; /* Keep title size consistent */
+    }
+}
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 18px;
+  align-items:left;
+}
+
+.table th,
+.table td {
+  padding: 10px;
+  border: 1px solid #ddd;
+}

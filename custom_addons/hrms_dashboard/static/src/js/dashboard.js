@@ -54,6 +54,8 @@ export class HrDashboard extends Component{
     this.state.announcements = res['announcement'];
     this.state.work_anniversaries = res['employee_work_anniversary']; // Add this line
     console.log("Work Anniversaries:", this.state.work_anniversaries);
+//    console.log("Employee birthdays:", this.state.employee_birthday);
+
 }
 
         });
@@ -69,6 +71,16 @@ export class HrDashboard extends Component{
             self.render_employee_skill();
         }
     }
+
+
+    toggleSidebar()
+    {
+    this.state.sidebarActive = !this.state.sidebarActive
+    }
+
+
+
+
     async render_department_employee() {
         const colors = [
             '#70cac1', '#659d4e', '#208cc2', '#4d6cb1', '#584999',
@@ -588,3 +600,14 @@ patch(ActivityMenu.prototype, {
         })
     },
 })
+
+
+//
+// // Toggle the sidebar on mobile
+//    var isSidebarVisible = true;
+//    function toggleSidebar() {
+//        isSidebarVisible = !isSidebarVisible;
+//        var sidebar = document.querySelector('.sidebar');
+//        sidebar.classList.toggle('sidebar-hidden', !isSidebarVisible);
+//    }
+

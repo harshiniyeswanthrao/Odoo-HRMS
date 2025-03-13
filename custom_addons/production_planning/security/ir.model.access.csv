@@ -1,0 +1,17 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_machine_master_admin,machine.master.admin,model_machine_master,base.group_system,1,1,1,1
+access_machine_master_user,machine.master.user,model_machine_master,base.group_user,1,0,0,0
+access_part_master_admin,part.master.admin,model_part_master,base.group_system,1,1,1,1
+access_part_master_user,part.master.user,model_part_master,base.group_user,1,0,0,0
+access_production_planning_admin,production.planning.admin,model_production_planning,base.group_system,1,1,1,1
+access_production_planning_user,production.planning.user,model_production_planning,base.group_user,1,0,0,0
+access_production_planning_line_admin,production.planning.line.admin,model_production_planning_line,base.group_system,1,1,1,1
+access_production_planning_line_user,production.planning.line.user,model_production_planning_line,base.group_user,1,0,0,0
+access_production_planning_name_admin,production.planning.name.admin,model_production_planning_name,base.group_system,1,1,1,1
+access_production_planning_name_user,production.planning.name.user,model_production_planning_name,base.group_user,1,0,0,0
+access_plant_management_admin,plant.management.admin,model_plant_management,base.group_system,1,1,1,1
+access_plant_management_user,plant.management.user,model_plant_management,base.group_user,1,0,0,0
+access_plant_line_admin,plant.line.admin,model_plant_line,base.group_system,1,1,1,1
+access_plant_line_user,plant.line.user,model_plant_line,base.group_user,1,0,0,0
+access_machine_part_master_admin,machine.part.master.admin,model_machine_part_master,base.group_system,1,1,1,1
+access_machine_part_master_user,machine.part.master.user,model_machine_part_master,base.group_user,1,0,0,0

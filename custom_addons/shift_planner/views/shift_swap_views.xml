@@ -1,0 +1,50 @@
+<odoo>
+    <!-- Form View for Shift Swap Requests -->
+    <record id="view_shift_swap_form" model="ir.ui.view">
+        <field name="name">shift.swap.request.form</field>
+        <field name="model">shift.swap.request</field>
+        <field name="arch" type="xml">
+            <form string="Shift Swap Request">
+                <sheet>
+                    <group>
+                        <field name="employee_id"/>
+                        <field name="shift_id"/>
+                        <field name="swap_with_id"/>
+                        <field name="status" readonly="1"/>
+                    </group>
+                    <footer>
+                        <button name="approve_swap" type="object" string="Approve" class="oe_highlight" attrs="{'invisible': [('status', '!=', 'pending')]}"/>
+                        <button name="reject_swap" type="object" string="Reject" attrs="{'invisible': [('status', '!=', 'pending')]}"/>
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- List View for Shift Swap Requests -->
+    <record id="view_shift_swap_list" model="ir.ui.view">
+        <field name="name">shift.swap.request.list</field>
+        <field name="model">shift.swap.request</field>
+        <field name="arch" type="xml">
+            <tree string="Shift Swap Requests">
+                <field name="employee_id"/>
+                <field name="shift_id"/>
+                <field name="swap_with_id"/>
+                <field name="status"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Action to open Shift Swap Requests -->
+    <record id="action_shift_swap" model="ir.actions.act_window">
+        <field name="name">Shift Swap Requests</field>
+        <field name="res_model">shift.swap.request</field>
+        <field name="view_mode">list,form</field>
+        <field name="target">current</field>
+    </record>
+
+    <!-- Add menu item under HR -->
+    <menuitem id="menu_shift_swap_request" name="Shift Swap Requests"
+              parent="hr.menu_hr_root"
+              action="action_shift_swap"/>
+</odoo>

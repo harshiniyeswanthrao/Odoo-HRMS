@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!-- Module Category -->
+        <record id="module_category_production_planning" model="ir.module.category">
+            <field name="name">Production Planning</field>
+            <field name="sequence">10</field>
+        </record>
+
+        <!-- Security Groups -->
+        <record id="group_production_planning_admin" model="res.groups">
+            <field name="name">Production Planning Administrator</field>
+            <field name="category_id" ref="module_category_production_planning"/>
+        </record>
+
+        <record id="group_production_planning_user" model="res.groups">
+            <field name="name">Production Planning User</field>
+            <field name="category_id" ref="module_category_production_planning"/>
+        </record>
+
+        <!-- Record Rule: Admins have full access -->
+        <record id="rule_admin_full_access" model="ir.rule">
+            <field name="name">Admin Full Access</field>
+            <field name="model_id" ref="model_production_planning"/>  <!-- Ensure this model exists -->
+            <field name="domain_force">[(1, '=', 1)]</field>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+            <field name="groups" eval="[(4, ref('group_production_planning_admin'))]"/>
+        </record>
+
+        <!-- Record Rule: Users can only read their own records -->
+        <record id="rule_user_read_only" model="ir.rule">
+            <field name="name">User Read-Only Access</field>
+            <field name="model_id" ref="model_production_planning"/>  <!-- Ensure this model exists -->
+            <field name="domain_force">[('create_uid', '=', user.id)]</field>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_unlink" eval="False"/>
+            <field name="groups" eval="[(4, ref('group_production_planning_user'))]"/>
+        </record>
+    </data>
+</odoo>

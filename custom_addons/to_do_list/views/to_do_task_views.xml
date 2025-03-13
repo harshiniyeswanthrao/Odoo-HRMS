@@ -1,0 +1,62 @@
+<odoo>
+    <!-- List View for To-Do Tasks -->
+    <record id="view_to_do_task_list" model="ir.ui.view">
+        <field name="name">to_do_task_list</field>
+        <field name="model">to_do.task</field>
+        <field name="arch" type="xml">
+            <list string="To-Do Tasks">
+                <field name="name"/>
+                <field name="deadline"/>
+                <field name="is_done"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Form View for To-Do Tasks -->
+    <record id="view_to_do_task_form" model="ir.ui.view">
+        <field name="name">to_do_task_form</field>
+        <field name="model">to_do.task</field>
+        <field name="arch" type="xml">
+            <form string="To-Do Task">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="description"/>
+                    </group>
+                    <group>
+                         <field name="assigned_to"/>
+                        <field name="priority"/>
+                        <field name="deadline"/>
+                    </group>
+                    <group>
+                       <field name="is_done"/>
+                    </group>
+                    <group>
+                        <field name="attachments" widget="many2many_binary"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    # MENU AND ACTIONS
+
+    <!-- Action for To-Do Tasks -->
+    <record id="action_to_do_task" model="ir.actions.act_window">
+        <field name="name">Tasks</field>
+        <field name="res_model">to_do.task</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first task
+            </p>
+        </field>
+    </record>
+
+    <!-- Root Menu for To-Do App -->
+    <menuitem id="menu_to_do_task_root" name="To-Do App" sequence="10"/>
+
+    <!-- Submenu for Tasks -->
+    <menuitem id="menu_to_do_task" name="Tasks" parent="menu_to_do_task_root" action="action_to_do_task"/>
+</odoo>

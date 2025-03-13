@@ -1,25 +1,4 @@
-# -*- coding: utf-8 -*-
-#############################################################################
-#    A part of Open HRMS Project <https://www.openhrms.com>
-#
-#    Cybrosys Technologies Pvt. Ltd.
-#
-#    Copyright (C) 2024-TODAY Cybrosys Technologies(<https://www.cybrosys.com>)
-#    Author: Cybrosys Techno Solutions(<https://www.cybrosys.com>)
-#
-#    You can modify it under the terms of the GNU LESSER
-#    GENERAL PUBLIC LICENSE (LGPL v3), Version 3.
-#
-#    This program is distributed in the hope that it will be useful,
-#    but WITHOUT ANY WARRANTY; without even the implied warranty of
-#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#    GNU LESSER GENERAL PUBLIC LICENSE (LGPL v3) for more details.
-#
-#    You should have received a copy of the GNU LESSER GENERAL PUBLIC LICENSE
-#    (LGPL v3) along with this program.
-#    If not, see <http://www.gnu.org/licenses/>.
-#
-#############################################################################
+
 {
     'name': 'Open HRMS Core Odoo 18',
     'version': '18.0.1.0.0',
@@ -37,11 +16,9 @@
      Actions, openhrms, Open HRMS, hrms, Attrition Rate, Document Expiry, 
      Visa Expiry, Law Suit Management, Employee, Employee Training, payroll, 
      odoo18 payroll""",
-    'author': 'Cybrosys Techno solutions',
-    'company': 'Cybrosys Techno Solutions',
-    'maintainer': 'Cybrosys Techno Solutions',
-    'live_test_url': 'https://youtu.be/kBBlUFofCTs',
-    'website': "https://www.openhrms.com",
+    'author': ' MY HRMS DASHBOARD',
+    'company': 'SAKSHATH TECHNOLOGIES',
+    'maintainer': 'HARSHINI G Y ',
     'depends': [
         'hr',
         'hr_payroll_account_community',

@@ -1,3 +1,17 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Default container padding */.container {
+    width: 100%;
+    padding: 015px;
+    margin: 0 auto;
+}
+
+
+
 .o_action_manager{
 overflow: auto !important;
 }
@@ -208,13 +222,13 @@ rect:hover {  fill:#934da5; }
 .container-fluid.o_hr_dashboard {
     padding: 0px !important;
 }
-.employee-prof {
+/*.employee-prof {
 
     padding: 0px;
     height: 100%;
     background-color: #3e6282;
     /*background-image: linear-gradient(180deg, #3e6282, #41666f);*/
-    position: fixed;
+    /*/position: fixed;
     /*z-index: 999;*/
 }
 .employee-prof .oh-card:hover {
@@ -224,9 +238,25 @@ rect:hover {  fill:#934da5; }
 
 }
 
+
+
+/*alteration 27-01-2025*/
+
+.parent_class{
+height:150px
+}
+.oh_card{
+height:900px
+}
+
+
+
 /*.dummy{
     height:130vh;
 }*/
+
+
+
 .oh-card {
 
     padding-top: 0px;
@@ -366,7 +396,7 @@ rect:hover {  fill:#934da5; }
     width: 30%;
     height: 85px;
     text-align: center;
-    padding-top: 15%;
+    padding-top: 10%;
     background: #b298e1;
     color: #fff;
 }
@@ -411,7 +441,7 @@ rect:hover {  fill:#934da5; }
     width: 30%;
     height: 85px;
     text-align: center;
-    padding-top: 15%;
+    padding-top: 10%;
 }
 .oh-timesheets .stat-icon{
     background: #b298e1 !important;
@@ -799,6 +829,17 @@ h4 .stat-count {
     overflow-y: auto;
     margin-bottom: 15px;
 }
+
+/* General styling for the section */
+.hr_notification {
+    background-color: #f8f9fa; /* Light grey background */
+    border: none; /* Subtle border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 0
+    ; /* Space inside the section */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Soft shadow */
+}
+
 .hr_notification .media {
     border-bottom: 1px solid #e6e6e6;
     padding-bottom: 6px;
@@ -1142,9 +1183,11 @@ h4 .stat-count {
 }
 .employee_prof {
     padding: 0px;
-    height: 100%;
-    position: fixed;
+    height: 1000%;
+    position: fixed !important;
     background: #71639e !important;
+
+
 }
 .employee_prof .oh_card:hover {
     transform:none !important;
@@ -1156,12 +1199,18 @@ h4 .stat-count {
     width: 100%;
     overflow: hidden;
 }
+
+
 .employee_prof .employee_icon img{
     width: 228px;
     border-radius: 50%;
     height: 228px;
     margin-left: 45px;
 }
+
+
+
+
 .employee_prof .employee_name p {
     margin: 0 0 9px;
     text-align: center;
@@ -1288,9 +1337,6 @@ body .text-color {
     color: var(--white);
 }
 
-
-
-
 }
 .hr_notification p {
     margin: 0 0 1px;
@@ -1300,18 +1346,6 @@ body .text-color {
 }
 
 
-
-
-
-/* General styling for the section */
-.hr_notification {
-    background-color: #f8f9fa; /* Light grey background */
-    border: none; /* Subtle border */
-    border-radius: 5px; /* Rounded corners */
-    padding: 0
-    ; /* Space inside the section */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Soft shadow */
-}
 
 .hr_notification-head {
     font-size: 1.2rem; /* Larger heading */
@@ -1391,6 +1425,218 @@ body .text-color {
     cursor: pointer; /* Add a pointer for better UX */
 }
 
+
+
+.days_left {
+    display: inline-block;
+    margin-top: 5px;
+    color: #666;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+
+
+
+
+
+
+
+
+
+/*CSS FOR RESPONSIVENESS*/
+
+
+/* Responsive Design for Smaller Screens */
+
+
+/* Sidebar Toggle Button - Visible only on mobile (below 768px) */
+.sidebar-toggle {
+    display: block;
+}
+
+/* Hide the toggle button on medium and larger screens (min-width: 768px) */
+.d-md-none {
+    display: block;
+}
+
+@media (min-width: 768px) {
+    .d-md-none {
+        display: none; /* Hide toggle button on medium screens and above */
+    }
+}
+
+/* Sidebar visibility control - Collapse the sidebar when not active */
+.collapse {
+    display: none; /* Sidebar is hidden when sidebarActive is false */
+}
+
+/* Sidebar Active - Show the sidebar when sidebarActive is true */
+.sidebar-active {
+    display: block; /* Sidebar is visible when sidebarActive is true */
+}
+
+/* Optional: Sidebar appearance customization (e.g., width, background color, etc.) */
+.sidebar-active {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 250px;
+    height: 100%;
+    background-color: #ffffff;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    z-index: 1000;
+}
+/* Main content area */
+.main-content {
+    overflow-y: auto;
+    height: 100vh; /* or adjust the height as needed */
+}
+
+/* Body styling for scrolling */
+body {
+    overflow: auto;
+}
+
+/* Sidebar when active - Fixed position */
+.sidebar-active {
+    position: relative;
+    height: 100%;
+    z-index: 10;
+    overflow-y: auto; /* Allow scrolling for the sidebar */
+}
+.employee-details-container {
+    display: flex;
+    flex-direction: column; /* Stack items vertically by default */
+    align-items: center; /* Center content in mobile view */
+    padding: 1rem;
+}
+
+.employee-card {
+    display: flex;
+    flex-direction: column; /* Stack content inside the card */
+    width: 100%; /* Full width for mobile */
+    max-width: 300px; /* Fixed width for desktop */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    background-color: #fff;
+    padding: 1rem;
+    text-align: center;
+    position: relative;
+}
+
+.employee-card.desktop-fixed {
+    position: fixed; /* Make it fixed in desktop view */
+    top: 10%; /* Adjust vertical position */
+    left: 2%; /* Adjust horizontal position */
+}
+
+.employee-icon img {
+    width: 100px; /* Fixed size for the image */
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+}
+
+.employee-name {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.employee-title {
+    color: #666; /* Grayed-out color for missing titles */
+    margin-bottom: 1rem;
+}
+
+.employee-experience {
+    color: #333;
+    font-size: 0.9rem;
+}
+
+@media (min-width: 768px) {
+    .employee-details-container {
+        align-items: flex-start; /* Align to the left for desktop */
+    }
+
+    .employee-card {
+        max-width: none; /* No max-width on desktop */
+    }
+}
+.employee-details-container {
+    position: relative; /* Default for mobile view */
+    width: 100%;
+    padding: 1rem;
+    display: flex;
+    justify-content: center; /* Center content in mobile view */
+}
+
+.employee-card {
+    max-width: 300px; /* Limit width on desktop */
+    width: 100%; /* Full width on mobile */
+    background-color: #fff;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.employee-icon img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+}
+
+.employee-name {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.employee-title {
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+.employee-experience {
+    font-size: 0.9rem;
+    color: #333;
+}
+
+
+
+
+/*css for tablet width -------- 28-01-2025*/
+@media (min-width: 768px) {
+    .col-md-6 {
+        -webkit-box-flex: 0;
+        -webkit-flex: 0 0 auto;
+        flex: 0 0 auto;
+        width: 41.6666667%;
+    }
+}
+
+/* Mobile screen adjustments */
+@media (min-width: 320px) and (max-width: 667px) {
+    .employee_prof {
+        position: relative !important;
+        height: auto;
+        margin-left: 10px;
+    }
+    .sidebar-active{
+    width:auto !important
+    }
+}
+/* HRMS DASHBOARD (APP BUTTON) 10-02-2025 */
+
+.fa-th-large:before {
+    content: "\f009";
+    margin-left: 15px;
+}
 
 
 

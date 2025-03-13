@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<odoo>
+    <!-- Root menu -->
+    <menuitem id="menu_production_root" name="PPM"  sequence="1"/>
+
+    <menuitem id="menu_plant_list" name="Plant List" parent="menu_production_root" action="action_plant_management" sequence="2"/>
+
+    <!-- Production Planning -->
+   <menuitem id="menu_production_planning_name"
+          name="Production Plans"
+          parent="menu_production_root"
+          action="action_production_planning_name" sequence="3"/>
+
+    <!-- Configuration -->
+    <menuitem id="menu_configuration" name="Configuration" parent="menu_production_root" sequence="4"/>
+
+    <!-- Machine Master -->
+    <menuitem id="menu_machine_master" name="Machine Master" parent="menu_configuration" sequence="1" action="action_machine_master"/>
+
+    <!-- Part Master -->
+    <menuitem id="menu_part_master" name="Part Master" parent="menu_configuration" sequence="2" action="action_part_master"/>
+
+    <menuitem id="menu_machine_part_master" name="Machine Part Master" parent="menu_production_root"
+              action="action_machine_part_master"/>
+</odoo>

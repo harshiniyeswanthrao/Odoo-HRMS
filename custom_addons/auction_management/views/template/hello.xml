@@ -1,0 +1,24 @@
+<!-- hello_template.xml -->
+<odoo>
+    <template id="assets_frontend" name="hello_owl assets">
+         <t t-call-assets="web.assets_frontend"/>
+
+
+              <script type="text/javascript" src="/auction_management/static/src/js/hello.js"></script>
+
+    </template>
+
+    <template id="hello_page" name="Hello Page">
+        <t t-call="web.layout">
+            <t t-call-assets="web.assets_frontend"/>
+
+
+              <script type="text/javascript" src="/auction_management/static/src/js/hello.js"></script>
+            <div class="oe_structure"/>
+            <div class="container">
+                <t t-component="hello_owl.HelloWidget"/>
+                <h1>hello</h1>
+            </div>
+        </t>
+    </template>
+</odoo>

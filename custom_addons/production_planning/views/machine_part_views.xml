@@ -1,0 +1,65 @@
+<odoo>
+    <record id="view_machine_part_list" model="ir.ui.view">
+        <field name="name">machine.part.master.list</field>
+        <field name="model">machine.part.master</field>
+        <field name="arch" type="xml">
+            <list string="Machine and Part Master Data">
+                <field name="part_name"/>
+                <field name="item_code"/>
+                <field name="part_number"/>
+                <field name="total_demand" sum="Total Demand"/>
+                <field name="price_per_piece"/>
+                <field name="sale_value" sum="Total Sale Value"/>
+                <field name="quality"/>
+                <field name="size"/>
+                <field name="operation_weight"/>
+                <field name="total_weight" sum="Total Weight"/>
+                <field name="machine_name" />
+                <field name="process" />
+                <field name="max_capacity"/>
+                <field name="actual_capacity"/>
+                <field name="oee"/>
+                <field name="no_of_machines" />
+            </list>
+        </field>
+    </record>
+
+    <record id="view_machine_part_form" model="ir.ui.view">
+        <field name="name">machine.part.master.form</field>
+        <field name="model">machine.part.master</field>
+        <field name="arch" type="xml">
+            <form string="Machine and Part Master">
+                <sheet>
+                    <group>
+                        <group string="Machine Details">
+                            <field name="machine_id" />
+                            <field name="process" />
+                            <field name="max_capacity"/>
+                            <field name="actual_capacity"/>
+                            <field name="oee"/>
+                            <field name="no_of_machines"/>
+                        </group>
+                        <group string="Part Details">
+                            <field name="part_id"/>
+                            <field name="item_code"/>
+                            <field name="part_number"/>
+                            <field name="total_demand"/>
+                            <field name="price_per_piece"/>
+                            <field name="sale_value"/>
+                            <field name="quality"/>
+                            <field name="size"/>
+                            <field name="operation_weight"/>
+                            <field name="total_weight"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_machine_part_master" model="ir.actions.act_window">
+        <field name="name">Machine Part Master</field>
+        <field name="res_model">machine.part.master</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

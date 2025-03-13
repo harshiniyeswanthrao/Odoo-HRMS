@@ -1,0 +1,12 @@
+<odoo>
+    <!-- Main Menu for Shift Planner -->
+    <menuitem id="menu_shift_planner_root" name="Shift Planner" sequence="10" />
+
+    <!-- Submenu for Shifts -->
+    <menuitem id="menu_shift_planner_shifts"
+              name="Shifts"
+              parent="menu_shift_planner_root"
+              action="action_shift_planner"
+              sequence="20" />
+
+</odoo>
